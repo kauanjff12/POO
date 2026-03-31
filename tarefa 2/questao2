@@ -1,0 +1,16 @@
+class Pais(self, nome, pupulacao, area):
+    def __init__(self):
+        self.nome= nome
+        self.populacao = populacao
+        self.area = area
+
+    def calculo_densidade(self):
+        return self.populacao / self.area
+    
+paises = []
+for i in range(10):
+    nome = input(f"nome pais{i + 1}")
+    populacao = float(input(f"populacao pais{i+1}: "))
+    area = float(input(f"area pais{i+1}: "))
+    
+    pais = -

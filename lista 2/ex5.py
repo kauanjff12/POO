@@ -1,3 +1,4 @@
+#questao 5
 class Pais:
     def __init__(self):
         self.nome= str
