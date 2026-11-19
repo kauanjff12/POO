@@ -1,3 +1,4 @@
+from dao_sql.database import criar_tabelas
 from templates.manterclienteui import ManterClienteUI
 from templates.manterservicoui import ManterServicoUI
 from templates.manterhorarioui import ManterHorarioUI
@@ -52,6 +53,10 @@ class IndexUI:
             st.rerun()
 
     def sidebar():
+        st.sidebar.subheader("Tipo de persistência")
+        tipo = st.sidebar.selectbox("Escolha onde salvar os dados", ["JSON", "SQLite"], key="tipo_persistencia")
+        if tipo == "SQLite": criar_tabelas()
+        st.sidebar.caption("Dados armazenados em: " + tipo)
         if "usuario_id" not in st.session_state:
             IndexUI.menu_visitante() 
         else:
@@ -64,9 +69,7 @@ class IndexUI:
             IndexUI.sair_do_sistema()
 
     def main():
-        # verifica a existe o usuário admin
-        Service.cliente_criar_admin()
-        # monta o sidebar
         IndexUI.sidebar()
+        Service.cliente_criar_admin()
 
 IndexUI.main()

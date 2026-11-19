@@ -17,6 +17,7 @@ class UI:
 
     @staticmethod
     def menu():
+        print("Persistência ativa:", Service.persistencia_nome())
         print("Clientes ----------------------------------")
         print("1-Inserir, 2-Listar, 3-Atualizar, 4-Excluir")
         print("Serviços ----------------------------------")
